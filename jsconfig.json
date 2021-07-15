@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@publics/*": ["public/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@components/*": ["src/components/*"],
+    }
+  }
+}
