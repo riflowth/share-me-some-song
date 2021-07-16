@@ -1,7 +1,10 @@
 {
-  "name": "riflowth.com",
-  "version": "0.1.0",
+  "name": "share-me-some-song",
+  "version": "1.0.0",
   "private": true,
+  "author": "Krid Heprakhone (https://github.com/riflowth/)",
+  "homepage": "https://github.com/riflowth/share-me-some-song",
+  "url": "https://github.com/riflowth/share-me-some-song/issues",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,6 +13,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.3.0",
+    "moment": "^2.29.1",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"

@@ -1,42 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import useSpotify from '@hooks/useSpotify'
 
 import SearchResultList from './SearchResultList'
 
 export default function SearchBox() {
   const [input, setInput] = useState('')
-  const [songList, setSongList] = useState([])
-
-  // https://developer.spotify.com/console/get-search-item/
-  const fetchSong = async () => {
-    const data = await fetch(
-      `https://api.spotify.com/v1/search?q=${input}&type=track&offset=0&limit=4`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SPOTIFY_TOKEN}`
-        }
-      })
-      .then(response => response.json())
-
-    setSongList([])
-    if (data.error) return
-    
-    const tracks = []
-    data.tracks.items.forEach(track => {
-      tracks.push({
-        image: track.album.images[2].url,
-        name: track.name,
-        artists: track.artists.map(artist => artist.name).join(', '),
-        duration: track.duration_ms,
-        uri: track.uri,
-      })
-    })
-    setSongList(tracks)
-  }
-
-  useEffect(() => {
-    input && fetchSong(input)
-  }, [input])
+  const songList = useSpotify(input, 4)
 
   return (
     <div className="relative mt-4">
@@ -57,14 +26,12 @@ export default function SearchBox() {
         <button
           type="button"
           className="px-4 py-1 bg-gray-700 hover:bg-gray-600 text-gray-400 focus:ring-0 text-base font-semibold"
-          onClick={fetchSong}
         >
           SEND
         </button>
       </div>
 
       <SearchResultList
-        show={input.length != 0}
         result={songList}
       />
     </div>

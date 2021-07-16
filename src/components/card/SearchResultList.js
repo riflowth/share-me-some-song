@@ -3,11 +3,11 @@ import { Transition } from '@headlessui/react'
 
 import SearchResultItem from './SearchResultItem'
 
-export default function SearchResultList({ show, result }) {
+export default function SearchResultList({ result }) {
   return (
     <Transition
       as={Fragment}
-      show={show}
+      show={result.length != 0}
       enter="transition ease-out duration-200"
       enterFrom="transform opacity-0 -translate-y-4"
       enterTo="transform opacity-100 scale-100"
