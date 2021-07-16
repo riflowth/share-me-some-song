@@ -30,7 +30,7 @@ export const refreshToken = async () => {
   global.spotify.last_token_timestamp = timestamp.toDate()
   global.spotify.token_expires_in = data.expires_in
 
-  console.log(`[Spotify] refresh token expires on ${timestamp.add(data.expires_in, 'second')}`)
+  console.log(`[Spotify] generate new token, expires on ${timestamp.add(data.expires_in, 'second')}`)
 }
 
 export const checkToken = () => {
