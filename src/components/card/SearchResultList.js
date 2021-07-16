@@ -15,10 +15,13 @@ export default function SearchResultList({ result }) {
       leaveFrom="transform opacity-100 scale-100"
       leaveTo="transform opacity-0 scale-95 -translate-y-4"
     >
-      <div className="absolute mt-2 py-2 w-full bg-gray-700">
-        {result.map(item => (
-          <SearchResultItem key={item.uri} item={item} />
-        ))}
+      <div className="absolute w-full mt-2 py-2">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-600 to-gray-700 opacity-25" />
+        <div className="relative">
+          {result.map(item => (
+            <SearchResultItem key={item.uri} item={item} />
+          ))}
+        </div>
       </div>
     </Transition>
   )
