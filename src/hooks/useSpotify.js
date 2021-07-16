@@ -3,16 +3,8 @@ import { useState, useEffect } from 'react';
 export default function useSpotify(query, limit) {
   const [songList, setSongList] = useState([])
 
-  // https://developer.spotify.com/console/get-search-item/
   const fetchSong = async () => {
-    const data = await fetch(
-      `https://api.spotify.com/v1/search?q=${query}&type=track&offset=0&limit=${limit}`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SPOTIFY_TOKEN}`
-        }
-      })
+    const data = await fetch(`/api/search?query=${query}&limit=${limit}`)
       .then(response => response.json())
 
     setSongList([])
