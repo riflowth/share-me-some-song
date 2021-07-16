@@ -10,12 +10,13 @@ export default function useSpotify(query) {
     setSongList([])
     if (data.error) return
 
-    setSongList(data.tracks.items.map(track => ({
-        image: track.album.images[2].url,
-        name: track.name,
-        artists: track.artists.map(artist => artist.name).join(', '),
-        duration: track.duration_ms,
-        uri: track.uri,
+    setSongList(data.tracks.items.map(item => ({
+        image: item.album.images[2].url,
+        name: item.name,
+        artists: item.artists.map(artist => artist.name).join(', '),
+        duration: item.duration_ms,
+        preview: item.preview_url,
+        uri: item.uri,
       })
     ))
   }
