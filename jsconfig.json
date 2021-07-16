@@ -5,6 +5,7 @@
       "@publics/*": ["public/*"],
       "@hooks/*": ["src/hooks/*"],
       "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
     }
   }
 }

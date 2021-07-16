@@ -5,7 +5,7 @@ import SearchResultList from './SearchResultList'
 
 export default function SearchBox() {
   const [input, setInput] = useState('')
-  const songList = useSpotify(input, 4)
+  const songList = useSpotify(input)
 
   return (
     <div className="relative mt-4">
@@ -21,19 +21,20 @@ export default function SearchBox() {
           className="w-full pl-8 pr-2 py-1 bg-gray-900 border-b border-gray-600 focus:outline-none text-gray-300"
           onChange={(e) => setInput(e.target.value)}
           value={input}
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
         />
 
         <button
           type="button"
-          className="px-4 py-1 bg-gray-700 hover:bg-gray-600 text-gray-400 focus:ring-0 text-base font-semibold"
+          className="px-4 py-1 bg-gray-700 hover:bg-gray-600 border-b border-gray-700 hover:border-gray-600 text-gray-400 focus:ring-0 text-base font-semibold"
         >
           SEND
         </button>
       </div>
 
-      <SearchResultList
-        result={songList}
-      />
+      <SearchResultList result={songList} />
     </div>
   )
 }
