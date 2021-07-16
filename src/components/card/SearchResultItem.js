@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 const millisToMinAndSec = (millis) => {
   const minutes = Math.floor(millis / 60000)
   const seconds = ((millis % 60000) / 1000).toFixed(0)
@@ -7,7 +9,15 @@ const millisToMinAndSec = (millis) => {
 export default function SearchResultItem({ item }) {
   return (
     <div className="flex flex-row px-4 py-2 items-center hover:bg-gray-600 group">
-      <img src={item.image} alt="" className="w-12 h-12" />
+      <div className="relative flex-none w-12 h-12">
+        <Image 
+          src={item.image}
+          layout="fill"
+          placeholder="blur"
+          blurDataURL={item.image}
+          alt=""
+        />
+      </div>
 
       <div className="ml-2 flex w-full justify-between">
         <span className="leading-tight text-sm">

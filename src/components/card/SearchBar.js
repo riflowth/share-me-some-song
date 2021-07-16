@@ -20,11 +20,11 @@ export default function SearchBox() {
 
     setSongList([])
     if (data.error) return
-
+    
     const tracks = []
     data.tracks.items.forEach(track => {
       tracks.push({
-        image: track.album.images[1].url,
+        image: track.album.images[2].url,
         name: track.name,
         artists: track.artists.map(artist => artist.name).join(', '),
         duration: track.duration_ms,
