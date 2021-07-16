@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-export default function useSpotify(query, limit) {
+export default function useSpotify(query) {
   const [songList, setSongList] = useState([])
-
+  
   const fetchSong = async () => {
-    const data = await fetch(`/api/search?query=${query}&limit=${limit}`)
+    const data = await fetch(`/api/search?query=${query}`)
       .then(response => response.json())
 
     setSongList([])
@@ -21,7 +21,7 @@ export default function useSpotify(query, limit) {
   }
 
   useEffect(() => {
-    query && fetchSong(query)
+    query ? fetchSong(query) : setSongList([])
   }, [query])
 
   return songList

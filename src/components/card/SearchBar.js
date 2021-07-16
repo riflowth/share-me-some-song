@@ -5,7 +5,7 @@ import SearchResultList from './SearchResultList'
 
 export default function SearchBox() {
   const [input, setInput] = useState('')
-  const songList = useSpotify(input, 4)
+  const songList = useSpotify(input)
 
   return (
     <div className="relative mt-4">
