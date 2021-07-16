@@ -33,7 +33,7 @@ export const refreshToken = async () => {
   console.log(`[Spotify] generate new token, expires on ${timestamp.add(data.expires_in, 'second')}`)
 }
 
-export const checkToken = () => {
+export const checkToken = async () => {
   const lastTokenTimestamp = global.spotify.last_token_timestamp
   const tokenExpiresIn = global.spotify.token_expires_in
 
@@ -44,7 +44,7 @@ export const checkToken = () => {
 }
 
 export const fetchSpotify = async (url) => {
-  checkToken()
+  await checkToken()
 
   return fetch(encodeURI(url), {
     headers: {
