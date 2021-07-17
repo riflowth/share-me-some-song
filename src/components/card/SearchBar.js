@@ -8,7 +8,7 @@ export default function SearchBox() {
   const songList = useSpotify(input)
 
   return (
-    <div className="relative mt-4">
+    <div className="relative">
       <div className="flex flex-row items-center">
         <span className="absolute text-gray-600 ml-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -18,7 +18,7 @@ export default function SearchBox() {
 
         <input
           type="text"
-          className="w-full pl-8 pr-2 py-1 bg-gray-900 border-b border-gray-600 focus:outline-none text-gray-300"
+          className="w-full pl-8 pr-2 py-1 bg-gray-900 border-b border-gray-600 focus:outline-none text-gray-300 rounded-lg rounded-tr-none rounded-br-none"
           onChange={(e) => setInput(e.target.value)}
           value={input}
           autoCorrect="off"
@@ -28,7 +28,7 @@ export default function SearchBox() {
 
         <button
           type="button"
-          className="px-4 py-1 bg-gray-700 hover:bg-gray-600 border-b border-gray-700 hover:border-gray-600 text-gray-400 focus:ring-0 text-base font-semibold"
+          className="px-4 py-1 bg-gray-700 hover:bg-gray-600 border-b border-gray-700 hover:border-gray-600 text-gray-400 focus:ring-0 text-base font-semibold rounded-tr-lg rounded-br-lg bg-transparent"
         >
           SEND
         </button>

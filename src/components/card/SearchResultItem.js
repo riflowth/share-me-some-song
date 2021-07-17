@@ -22,7 +22,7 @@ export default function SearchResultItem({ item }) {
   return (
     <button
       onClick={start}
-      className="px-4 py-2 w-full group hover:bg-gray-600 group"
+      className="px-4 py-2 w-full group hover:bg-gray-700 hover:bg-opacity-50 group"
     >
       <div className="flex flex-row items-center">
         <div className="relative flex-none w-12 h-12 group">
@@ -42,12 +42,12 @@ export default function SearchResultItem({ item }) {
           </div>
         </div>
 
-        <div className="ml-2 flex w-full justify-between">
+        <div className="ml-4 flex w-full justify-between">
           <span className="text-left leading-tight text-sm">
             <h3 className="text-gray-100">{item.name}</h3>
             <p className="text-gray-400 group-hover:text-gray-100">{item.artists}</p>
           </span>
-          <span className="text-gray-400 text-xs ml-2">
+          <span className="text-gray-400 text-xs ml-4">
             {millisToMinAndSec(item.duration).join(':')}
           </span>
         </div>

@@ -16,8 +16,8 @@ export default function SearchResultList({ result }) {
       leaveTo="transform opacity-0 scale-95 -translate-y-4"
     >
       <div className="absolute w-full mt-2 py-2">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-600 to-gray-700 opacity-25" />
-        <div className="relative">
+        <div className="absolute inset-0 ring-2 ring-gray-400 ring-opacity-30 bg-gradient-to-b from-gray-600 to-transparent opacity-25 rounded-lg" />
+        <div className="relative ">
           {result.map(item => (
             <SearchResultItem key={item.uri} item={item} />
           ))}
