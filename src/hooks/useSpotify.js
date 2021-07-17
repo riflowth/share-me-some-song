@@ -7,7 +7,6 @@ export default function useSpotify(query) {
     const data = await fetch(`/api/search?query=${query}`)
       .then(response => response.json())
 
-    setSongList([])
     if (data.error) return
 
     setSongList(data.tracks.items.map(item => ({

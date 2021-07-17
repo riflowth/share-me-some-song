@@ -1,4 +1,4 @@
-import { fetchSpotify } from 'src/pages/api';
+import { fetchSpotify } from '@services/SpotifyService';
 
 const DEFAULT_LIMIT = 4
 
