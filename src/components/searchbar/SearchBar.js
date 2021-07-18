@@ -39,9 +39,9 @@ export default function SearchBox() {
       <SearchResultList result={songList} />
 
       {/* decorations */}
-      <div className="absolute inset-0 z-0 opacity-60 filter blur-xl">
-        <div style={{ borderRadius: '34% 66% 31% 69% / 66% 76% 24% 34%' }} className="absolute -top-1/2 -left-14 w-32 h-32 rounded-full bg-gradient-to-br from-emerald-400 to-blue-700 filter blur-xl" />
-        <div style={{ borderRadius: '83% 17% 31% 69% / 87% 35% 65% 13%' }} className="absolute -bottom-20 -right-16 w-60 h-60 rounded-full bg-gradient-to-l from-emerald-300 to-blue-600 filter blur-xl" />
+      <div className="absolute inset-0 z-0 opacity-70">
+        <div style={{ borderRadius: '34% 66% 31% 69% / 66% 76% 24% 34%' }} className="absolute -top-1/2 -left-14 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-emerald-400 to-blue-700 filter blur-sm" />
+        <div style={{ borderRadius: '73% 27% 31% 69% / 66% 49% 51% 34%' }} className="absolute -bottom-20 -right-16 w-44 h-44 sm:w-60 sm:h-60 rounded-full bg-gradient-to-l from-emerald-300 to-blue-600 filter blur-sm" />
       </div>
     </div>
   )

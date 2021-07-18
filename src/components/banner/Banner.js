@@ -13,12 +13,13 @@ const randomFeeling = (current) => {
 
 export default function Banner() {
   const [feeling, setFeeling] = useState(randomFeeling())
-  useInterval(() => setFeeling(randomFeeling()), 1000)
+  useInterval(() => setFeeling(randomFeeling()), 2000)
 
   return (
     <div className="relative z-50 mb-12 text-center select-none">
-      <p className="text-emerald-700 text-xl mb-2">Share Your <span className="capitalize">{feeling}</span></p>
-      <h1 className="text-white text-5xl font-bold mb-4">Share Your Song</h1>
+      <p className="text-emerald-600 text-lg font-bold uppercase leading-none">Share Your</p>
+      <h1 className="text-gray-200 text-6xl font-bold mb-3 sm:mb-4"><span className="capitalize">{feeling}</span></h1>
+      <p className="text-gray-500 text-lg lowercase leading-none">into my spotify playlist</p>
     </div>
   )
 }
