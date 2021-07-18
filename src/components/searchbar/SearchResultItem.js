@@ -22,7 +22,7 @@ export default function SearchResultItem({ item }) {
   return (
     <button
       onClick={start}
-      className="px-4 py-2 w-full group hover:bg-gray-700 hover:bg-opacity-50 group"
+      className="px-4 py-2 w-full group hover:bg-gray-700 hover:bg-opacity-40 group"
     >
       <div className="flex flex-row items-center">
         <div className="relative flex-none w-12 h-12 group">
