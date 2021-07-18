@@ -2,18 +2,13 @@ import { useState } from 'react'
 import useInterval from '@hooks/useInterval'
 
 const feelings = ['happiness', 'love', 'excitement', 'lonely', 'heartbroken', 'hopeless', 'stressed', 'frustrated']
-
 const randomFeeling = (current) => {
-  let random = feelings[Math.floor(Math.random() * feelings.length)]
-  while (random == current) {
-    random = feelings[Math.floor(Math.random() * feelings.length)]
-  }
-  return random
+  return feelings.filter(feeling => (feeling != current))[Math.floor(Math.random() * (feelings.length - 1))]
 }
 
 export default function Banner() {
-  const [feeling, setFeeling] = useState(randomFeeling())
-  useInterval(() => setFeeling(randomFeeling()), 2000)
+  const [feeling, setFeeling] = useState('happiness')
+  useInterval(() => setFeeling(prevFeeling => randomFeeling(prevFeeling)), 2000)
 
   return (
     <div className="relative z-50 mb-12 text-center select-none">
