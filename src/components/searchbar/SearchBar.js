@@ -1,27 +1,20 @@
-import { useState } from 'react'
-import useSpotify from '@hooks/useSpotify'
-
+import MagnifyingGlassIcon from '@components/common/icons/MagnifyingGlassIcon'
 import SearchResultList from './SearchResultList'
 
-export default function SearchBox() {
-  const [input, setInput] = useState('')
-  const songList = useSpotify(input)
-
+export default function SearchBox({ searchKey, setSearchKey, result }) {
   return (
     <div className="relative max-w-sm sm:max-w-lg w-full mx-auto select-none">
       <div className="relative z-10 p-4 transition-shadow duration-500 ease-out shadow-xl hover:shadow-2xl ring-2 ring-white ring-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg">
         <div className="flex flex-row items-center">
           <span className="absolute text-gray-500 ml-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <MagnifyingGlassIcon className="w-5 h-5" />
           </span>
 
           <input
             type="text"
             className="w-full pl-8 pr-2 py-1 bg-gray-800 bg-opacity-40 focus:outline-none text-gray-300 rounded-lg rounded-tr-none rounded-br-none"
-            onChange={(e) => setInput(e.target.value)}
-            value={input}
+            onChange={(e) => setSearchKey(e.target.value)}
+            value={searchKey}
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck="false"
@@ -36,7 +29,7 @@ export default function SearchBox() {
         </div>
       </div>
 
-      <SearchResultList result={songList} />
+      <SearchResultList result={result} />
 
       {/* decorations */}
       <div className="absolute inset-0 z-0 opacity-70">

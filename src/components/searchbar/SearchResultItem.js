@@ -2,6 +2,9 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { millisToMinAndSec } from '@utils/common'
 
+import PlayIcon from '@components/common/icons/PlayIcon'
+import PauseIcon from '@components/common/icons/PauseIcon'
+
 export default function SearchResultItem({ item }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const audio = useRef(null)
@@ -36,9 +39,7 @@ export default function SearchResultItem({ item }) {
             />
           </div>
           <div className="absolute inset-0 flex transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 text-white">
-            <svg className="w-4 h-4 m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M3 22v-20l18 10-18 10z" fill="currentColor" />
-            </svg>
+            {isPlaying ? <PauseIcon className="w-4 h-4 m-auto" /> : <PlayIcon className="w-4 h-4 m-auto" />}
           </div>
         </div>
 
