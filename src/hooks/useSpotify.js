@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 
-export default function useSpotify(query) {
-  const [songList, setSongList] = useState([])
+export default function useSpotify() {
+  const [key, search] = useState('')
+  const [songs, setSongs] = useState([])
   
-  const fetchSong = async () => {
+  const fetchSong = async (query) => {
     const data = await fetch(`/api/search?query=${query}`)
       .then(response => response.json())
 
-    if (data.error) return setSongList([])
+    if (data.error) return setSongs([])
 
-    setSongList(data.tracks.items.map(item => ({
+    setSongs(data.tracks.items.map(item => ({
         image: item.album.images[2].url,
         name: item.name,
         artists: item.artists.map(artist => artist.name).join(', '),
@@ -21,8 +22,14 @@ export default function useSpotify(query) {
   }
 
   useEffect(() => {
-    query ? fetchSong(query) : setSongList([])
-  }, [query])
+    console.log(key)
 
-  return songList
+    key ? fetchSong(key) : setSongs([])
+  }, [key])
+
+  useEffect(() => {
+    console.log(songs)
+  }, [songs])
+
+  return [songs, search]
 }

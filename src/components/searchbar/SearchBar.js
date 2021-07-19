@@ -1,7 +1,7 @@
 import MagnifyingGlassIcon from '@components/common/icons/MagnifyingGlassIcon'
 import SearchResult from './SearchResult'
 
-export default function SearchBox({ searchKey, setSearchKey, result }) {
+export default function SearchBox({ search, result }) {
   return (
     <div className="relative max-w-sm sm:max-w-lg w-full mx-auto select-none">
       <div className="relative z-10 p-4 transition-shadow duration-500 ease-out shadow-xl hover:shadow-2xl ring-2 ring-white ring-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg">
@@ -13,8 +13,7 @@ export default function SearchBox({ searchKey, setSearchKey, result }) {
           <input
             type="text"
             className="w-full pl-8 pr-2 py-1 bg-gray-800 bg-opacity-40 focus:outline-none text-gray-300 rounded-lg rounded-tr-none rounded-br-none"
-            onChange={(e) => setSearchKey(e.target.value)}
-            value={searchKey}
+            onChange={(e) => search(e.target.value)}
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck="false"
