@@ -4,6 +4,10 @@ export const millisToMinAndSec = (millis) => {
   return [minutes, (seconds < 10 ? '0' : '') + seconds]
 }
 
-export const excludeRandom = (sample, exclude) => {
-  return sample.filter(element => (element != exclude))[Math.floor(Math.random() * (sample.length - 1))]
+export const random = (sample, exclude) => {
+  if (exclude) {
+    return sample.filter(element => (element != exclude))[Math.floor(Math.random() * (sample.length - 1))]
+  }
+
+  return sample[Math.floor(Math.random() * sample.length)]
 }

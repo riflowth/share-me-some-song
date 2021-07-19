@@ -1,5 +1,5 @@
 import MagnifyingGlassIcon from '@components/common/icons/MagnifyingGlassIcon'
-import SearchResultList from './SearchResultList'
+import SearchResult from './SearchResult'
 
 export default function SearchBox({ searchKey, setSearchKey, result }) {
   return (
@@ -29,7 +29,7 @@ export default function SearchBox({ searchKey, setSearchKey, result }) {
         </div>
       </div>
 
-      <SearchResultList result={result} />
+      <SearchResult result={result} />
 
       {/* decorations */}
       <div className="absolute inset-0 z-0 opacity-70">
