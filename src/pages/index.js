@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import useIntervalRandom from '@hooks/useIntervalRandom'
 import useSpotify from '@hooks/useSpotify'
+import { AudioPlayerProvider } from '@contexts/AudioPlayerContext'
 
 import WebWrapper from '@components/common/WebWrapper'
 import WebContent from '@components/common/WebContent'
@@ -10,8 +11,9 @@ import SearchBar from '@components/searchbar/SearchBar'
 const feelings = ['happiness', 'love', 'excitement', 'lonely', 'heartbroken', 'hopeless', 'stressed', 'frustrated']
 
 export default function IndexPage() {
-  const [searchKey, setSearchKey] = useState('')
   const feeling = useIntervalRandom(feelings, 2000)
+
+  const [searchKey, setSearchKey] = useState('')
   const songs = useSpotify(searchKey)
 
   return (
@@ -23,13 +25,13 @@ export default function IndexPage() {
           subtitle="into my spotify playlist"
         />
 
-        <SearchBar
-          searchKey={searchKey}
-          setSearchKey={setSearchKey}
-          result={songs}
-        >
-          
-        </SearchBar>
+        <AudioPlayerProvider>
+          <SearchBar
+            searchKey={searchKey}
+            setSearchKey={setSearchKey}
+            result={songs}
+          />
+        </AudioPlayerProvider>
       </WebContent>
     </WebWrapper>
   )

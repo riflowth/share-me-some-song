@@ -1,30 +1,16 @@
-import { useState, useRef } from 'react'
-import Image from 'next/image'
 import { millisToMinAndSec } from '@utils/common'
+import { useAudioPlayer } from '@contexts/AudioPlayerContext'
 
+import Image from 'next/image'
 import PlayIcon from '@components/common/icons/PlayIcon'
 import PauseIcon from '@components/common/icons/PauseIcon'
 
 export default function SearchResultItem({ item }) {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audio = useRef(null)
-
-  // TODO: refactor
-  const start = () => {
-    if (!isPlaying) {
-      audio.current = new Audio(item.preview)
-      audio.current.volume = 0.15;
-      audio.current.play()
-      setIsPlaying(true)
-    } else {
-      audio.current.pause()
-      setIsPlaying(false)
-    }
-  }
+  const audioPlayer = useAudioPlayer()
 
   return (
     <button
-      onClick={start}
+      onClick={() => audioPlayer.play(item.preview)}
       className="px-4 py-2 w-full group hover:bg-gray-700 hover:bg-opacity-40 group"
     >
       <div className="flex flex-row items-center">
@@ -39,7 +25,10 @@ export default function SearchResultItem({ item }) {
             />
           </div>
           <div className="absolute inset-0 flex transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 text-white">
-            {isPlaying ? <PauseIcon className="w-4 h-4 m-auto" /> : <PlayIcon className="w-4 h-4 m-auto" />}
+            {(audioPlayer.song == item.preview) ?
+              <PauseIcon className="w-4 h-4 m-auto" /> :
+              <PlayIcon className="w-4 h-4 m-auto" />
+            }
           </div>
         </div>
 

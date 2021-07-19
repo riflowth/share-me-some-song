@@ -2,7 +2,7 @@ import { Transition } from '@headlessui/react'
 
 import SearchResultItem from './SearchResultItem'
 
-export default function SearchResultList({ result }) {
+export default function SearchResult({ result }) {
   return (
     <Transition
       as="div"
