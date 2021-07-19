@@ -7,7 +7,7 @@ export default function useSpotify(query) {
     const data = await fetch(`/api/search?query=${query}`)
       .then(response => response.json())
 
-    if (data.error) return
+    if (data.error) return setSongList([])
 
     setSongList(data.tracks.items.map(item => ({
         image: item.album.images[2].url,
