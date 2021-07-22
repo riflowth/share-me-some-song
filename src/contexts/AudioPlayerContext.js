@@ -18,7 +18,7 @@ export const AudioPlayerProvider = ({ children }) => {
   const play = (song) => {
     const audio = audioRef.current
     if (audio.src == song) {
-      audio.pause()
+      audio.src = ''
       setSong(null)
     } else {
       audio.src = song
