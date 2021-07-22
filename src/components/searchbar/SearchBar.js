@@ -13,7 +13,7 @@ export default function SearchBox({ search, result }) {
           <input
             type="text"
             className="w-full pl-8 pr-2 py-1 bg-gray-800 bg-opacity-40 focus:outline-none text-gray-300 rounded-lg rounded-tr-none rounded-br-none"
-            onChange={(e) => search(e.target.value)}
+            onChange={(e) => search.set(e.target.value)}
             autoCorrect="off"
             autoCapitalize="off"
             spellCheck="false"
@@ -28,7 +28,10 @@ export default function SearchBox({ search, result }) {
         </div>
       </div>
 
-      <SearchResult result={result} />
+      <SearchResult 
+        show={!!search.key && result.length != 0}
+        result={result}
+      />
 
       {/* decorations */}
       <div className="absolute inset-0 z-0 opacity-70">
