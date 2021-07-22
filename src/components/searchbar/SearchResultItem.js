@@ -8,6 +8,13 @@ import PauseIcon from '@components/common/icons/PauseIcon'
 export default function SearchResultItem({ item }) {
   const audioPlayer = useAudioPlayer()
 
+  if (item.preview) {
+    var previewIcon = 
+      (audioPlayer.song == item.preview) ?
+      <PauseIcon className="w-4 h-4 m-auto" /> :
+      <PlayIcon className="w-4 h-4 m-auto" />
+  }
+
   return (
     <button
       onClick={() => audioPlayer.play(item.preview)}
@@ -25,10 +32,7 @@ export default function SearchResultItem({ item }) {
             />
           </div>
           <div className="absolute inset-0 flex transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100 text-white">
-            {(audioPlayer.song == item.preview) ?
-              <PauseIcon className="w-4 h-4 m-auto" /> :
-              <PlayIcon className="w-4 h-4 m-auto" />
-            }
+            {previewIcon}
           </div>
         </div>
 
